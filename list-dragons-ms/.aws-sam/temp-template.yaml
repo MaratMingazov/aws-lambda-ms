@@ -1,0 +1,11 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 300
+      MemorySize: 128
+      Handler: maratmingazov.ListDragonsApp
+      CodeUri: /Users/maratmingazov/Documents/Projects/aws-lambda-ms/list-dragons-ms
+      Runtime: java11
+      Architectures:
+        - x86_64
