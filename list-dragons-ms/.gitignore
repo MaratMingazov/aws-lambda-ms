@@ -5,6 +5,7 @@
 *.log
 
 .DS_Store
+.idea
 aws-lambda-ms.iml
 
 # BlueJ files
