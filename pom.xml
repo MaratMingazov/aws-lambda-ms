@@ -48,6 +48,7 @@
   <modules>
     <module>add-dragon-ms</module>
     <module>list-dragons-ms</module>
+    <module>validate-dragon-ms</module>
   </modules>
 
   <properties>
