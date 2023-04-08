@@ -5,5 +5,7 @@
      "location_city_str":"eden",
      "location_country_str":"usa",
      "location_neighborhood_str":"church st",
-     "location_state_str":"mississsippi"
+     "location_state_str":"mississsippi",
+     "reportingPhoneNumber": "888",
+     "confirmationRequired": false
 }

@@ -1,0 +1,11 @@
+{
+     "description":"Some say Inexistente doesn't exist, yet.",
+     "dragonName":"Inexistente",
+     "family":"green",
+     "city":"seattle",
+     "country":"usa",
+     "neighborhood":"4th st",
+     "state":"washington",
+     "reportingPhoneNumber": "888",
+     "confirmationRequired": false
+}

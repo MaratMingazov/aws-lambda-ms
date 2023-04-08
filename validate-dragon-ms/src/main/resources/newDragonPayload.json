@@ -5,5 +5,7 @@
      "location_city_str":"seattle",
      "location_country_str":"usa",
      "location_neighborhood_str":"4th st",
-     "location_state_str":"washington"
+     "location_state_str":"washington",
+     "reportingPhoneNumber": "888",
+     "confirmationRequired": false
 }
