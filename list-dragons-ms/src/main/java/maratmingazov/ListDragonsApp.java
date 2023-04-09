@@ -4,6 +4,8 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.amazonaws.xray.AWSXRay;
+import com.amazonaws.xray.entities.Subsegment;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -57,8 +59,17 @@ public class ListDragonsApp implements RequestHandler<APIGatewayProxyRequestEven
 
         // See reference on AWS SDK for Java 2.x async programming
         // https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/asynchronous.html
-        CompletableFuture<Void> selected = queryS3(s3, bucketName, key, query, testHandler);
-        selected.join();
+
+        Subsegment subsegment = AWSXRay.beginSubsegment("ListDragonsMS-QueryS3");
+        System.out.println("ListDragonsMS-QueryS3-Log");
+        try{
+            CompletableFuture<Void> selected = queryS3(s3, bucketName, key, query, testHandler);
+            selected.join();
+        } catch (Exception e) {
+            subsegment.addException(e);
+        } finally {
+            AWSXRay.endSubsegment();
+        }
 
         for (SelectObjectContentEventStream events : testHandler.receivedEvents) {
             if (events instanceof DefaultRecords) {
