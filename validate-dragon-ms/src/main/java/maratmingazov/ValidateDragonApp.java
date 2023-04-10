@@ -38,6 +38,7 @@ public class ValidateDragonApp implements RequestHandler<Map<String, String>, St
     @Override
     public String handleRequest(Map<String, String> stringStringMap, Context context) {
         readDragonData(stringStringMap);
+        System.err.println("Dragon was successfully validated.");
         return "Dragon validated";
     }
 

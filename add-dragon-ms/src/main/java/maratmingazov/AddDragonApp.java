@@ -34,6 +34,7 @@ public class AddDragonApp implements RequestHandler<Dragon, String> {
     @Override
     public String handleRequest(Dragon dragon, Context context) {
         addDragon(dragon);
+        System.out.println("Dragon was successfully added.");
         return "Dragon added";
     }
 
